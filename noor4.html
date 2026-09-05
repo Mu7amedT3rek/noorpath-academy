@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoorPath Academy - Next-Gen Islamic & Quran Learning</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: #030712;
+        }
+
+        /* Glassmorphism Panel & Cards */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.025);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(52, 211, 153, 0.4);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 35px rgba(16, 185, 129, 0.15);
+        }
+
+        /* Floating 3D Animated Cubes */
+        .cube {
+            position: absolute;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.08), 0 25px 50px rgba(0,0,0,0.5);
+            animation: float 14s infinite ease-in-out;
+        }
+
+        .cube-1 { top: 8%; left: 4%; width: 100px; height: 100px; animation-delay: 0s; transform: rotate(12deg); }
+        .cube-2 { top: 55%; right: 6%; width: 140px; height: 140px; animation-delay: -3.5s; transform: rotate(-20deg); }
+        .cube-3 { top: 30%; left: 48%; width: 75px; height: 75px; animation-delay: -7s; transform: rotate(35deg); }
+        .cube-4 { bottom: 12%; left: 10%; width: 120px; height: 120px; animation-delay: -10.5s; transform: rotate(-15deg); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-35px) rotate(22deg) scale(1.08); }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 50%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950 relative overflow-x-hidden">
+
+    <!-- Ambient Glows -->
+    <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-emerald-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="fixed bottom-0 right-1/4 w-[600px] h-[600px] bg-teal-600/10 rounded-full blur-[160px] pointer-events-none"></div>
+
+    <!-- Floating Glass Cubes Canvas -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="cube cube-1 hidden md:block"></div>
+        <div class="cube cube-2 hidden md:block"></div>
+        <div class="cube cube-3 hidden lg:block"></div>
+        <div class="cube cube-4 hidden md:block"></div>
+    </div>
+
+    <!-- Top Announcement Floating Banner -->
+    <div class="relative z-10 py-3 text-center border-b border-white/10 bg-slate-950/70 backdrop-blur-md">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-emerald-400 uppercase">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            Al-Azhar Certified Global Academy &bull; 1-on-1 Personalized Classes
+        </span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="https://noor-path.com" target="_blank" rel="noopener noreferrer" class="flex items-center group">
+                <img src="https://noor-path.com/wp-content/uploads/2025/09/BIG-LOGO-FONT-RIGHT-1-1-1536x433.png" alt="NoorPath Academy Logo" class="h-10 md:h-12 w-auto object-contain brightness-110 drop-shadow-[0_0_12px_rgba(255,255,255,0.3)] transition-transform group-hover:scale-105">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-slate-300">
+                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
+                <a href="#programs" class="hover:text-emerald-400 transition-colors">Tracks</a>
+                <a href="#advantage" class="hover:text-emerald-400 transition-colors">Why 1-on-1</a>
+                <a href="#steps" class="hover:text-emerald-400 transition-colors">Process</a>
+                <a href="#faq" class="hover:text-emerald-400 transition-colors">FAQ</a>
+            </div>
+
+            <a href="https://noor-path.com" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-black text-xs uppercase tracking-widest transition-all hover:shadow-[0_0_25px_rgba(52,211,153,0.5)]">
+                Book Free Trial
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 py-20 md:py-28 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-8">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-panel border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+                    <span>✨</span> Direct Scholar Guidance
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-black leading-tight tracking-tight">
+                    Elevate Your Faith & <br>
+                    <span class="gradient-text">Quranic Knowledge</span>
+                </h1>
+
+                <p class="text-slate-300 text-base md:text-lg leading-relaxed font-normal max-w-2xl">
+                    Build your knowledge and strengthen your connection with the Quran through personalized online learning tailored around your schedule, level, and individual spiritual goals at <a href="https://noor-path.com" target="_blank" rel="noopener noreferrer" class="font-bold text-emerald-400 underline underline-offset-4">NoorPath Academy</a>.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="https://noor-path.com" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-105">
+                        Book Your Free Trial
+                    </a>
+                    <a href="#programs" class="px-8 py-4 rounded-xl glass-panel hover:bg-white/10 text-white font-extrabold text-xs uppercase tracking-widest transition-all">
+                        Explore Tracks ↓
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative">
+                <div class="glass-card rounded-3xl p-8 relative z-10 space-y-6">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Academy Highlights</span>
+                        <span class="text-xs text-slate-400">Live 1-on-1</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <h4 class="text-3xl font-black text-white">1-on-1</h4>
+                            <p class="text-[11px] text-slate-300 font-medium uppercase mt-1">Private Lessons & Direct Feedback</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <h4 class="text-2xl font-black text-emerald-400">Al-Azhar</h4>
+                            <p class="text-[11px] text-slate-300 font-medium uppercase mt-1">Certified Native Tutors (Fluent English)</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-gradient-to-r from-emerald-950/60 to-slate-900/60 border border-emerald-500/20">
+                        <div class="text-2xl font-black text-white">500+ Active Students</div>
+                        <p class="text-xs text-slate-400 mt-1">Join a thriving global community learning Quran & Arabic seamlessly.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NEW INNER DISPLAY 1: Glass Horizon Banner (About) -->
+    <section id="about" class="relative z-10 py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="glass-panel rounded-3xl p-8 md:p-12 relative overflow-hidden border border-emerald-500/20">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-4 space-y-3">
+                        <span class="text-xs font-black tracking-widest text-emerald-400 uppercase bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">About NoorPath</span>
+                        <h2 class="text-3xl font-bold text-white leading-tight">Personalized <br>Online Learning</h2>
+                    </div>
+                    <div class="lg:col-span-8 space-y-4 border-l lg:border-white/10 lg:pl-8">
+                        <p class="text-slate-300 leading-relaxed text-sm md:text-base">
+                            At <a href="https://noor-path.com" target="_blank" rel="noopener noreferrer" class="text-emerald-400 font-bold underline">NoorPath Academy</a>, we believe Islamic education should be accessible, structured, and personalized. Our online programs connect students with qualified tutors for private lessons that fit their learning goals and daily schedules.
+                        </p>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
+                            Whether you are a complete beginner, a parent looking for Quran lessons for your child, or an advanced student seeking to deepen your Islamic knowledge, our tutors provide guidance tailored to your exact level.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW INNER DISPLAY 2: Horizontal LMS-Style Pathway Timeline (Tracks) -->
+    <section id="programs" class="relative z-10 py-24 border-t border-white/10 bg-slate-950/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Curriculum Pathways</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-white mt-2">Specialized Tracks</h2>
+                </div>
+                <div class="text-xs font-semibold uppercase tracking-widest text-slate-400 glass-panel px-4 py-2 rounded-full">
+                    4 Structured Pillars
+                </div>
+            </div>
+
+            <!-- Stacked Interactive Horizontal Strips -->
+            <div class="space-y-6">
+                
+                <!-- Track 1 Strip -->
+                <div class="glass-card rounded-2xl p-6 md:p-8 relative overflow-hidden group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                        <div class="lg:col-span-1 text-3xl md:text-4xl font-black text-emerald-500/40 group-hover:text-emerald-400 transition-colors">01</div>
+                        <div class="lg:col-span-4 space-y-2">
+                            <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase border border-emerald-500/20">
+                                Structured 4-Level Pathway
+                            </span>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                                <a href="https://noor-path.com/courses/islamic-study-track/" target="_blank" rel="noopener noreferrer">Islamic Study Track</a>
+                            </h3>
+                        </div>
+                        <div class="lg:col-span-5 text-slate-300 text-xs md:text-sm leading-relaxed">
+                            Follow a structured Islamic Study Track designed to take you from foundational knowledge toward advanced Islamic studies. Learn with Al-Azhar certified scholars through 1-on-1 lessons and progress toward advanced studies and an Ijazah pathway.
+                        </div>
+                        <div class="lg:col-span-2 flex justify-start lg:justify-end">
+                            <a href="https://noor-path.com/courses/islamic-study-track/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-white/5 hover:bg-emerald-500 hover:text-slate-950 border border-white/10 text-xs font-bold uppercase tracking-wider text-emerald-400 transition-all flex items-center gap-2">
+                                <span>Explore</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 2 Strip -->
+                <div class="glass-card rounded-2xl p-6 md:p-8 relative overflow-hidden group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                        <div class="lg:col-span-1 text-3xl md:text-4xl font-black text-teal-500/40 group-hover:text-teal-400 transition-colors">02</div>
+                        <div class="lg:col-span-4 space-y-2">
+                            <span class="inline-block px-3 py-1 rounded-full bg-teal-500/10 text-teal-300 text-[10px] font-bold uppercase border border-teal-500/20">
+                                Native Tutors & Fluency
+                            </span>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                                <a href="https://noor-path.com/courses/arabic-language/" target="_blank" rel="noopener noreferrer">Arabic Language</a>
+                            </h3>
+                        </div>
+                        <div class="lg:col-span-5 text-slate-300 text-xs md:text-sm leading-relaxed">
+                            Master the Arabic Language with qualified native tutors. Develop reading, writing, speaking, grammar, and vocabulary skills or focus specifically on Quranic Arabic or everyday conversational Arabic.
+                        </div>
+                        <div class="lg:col-span-2 flex justify-start lg:justify-end">
+                            <a href="https://noor-path.com/courses/arabic-language/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-white/5 hover:bg-emerald-500 hover:text-slate-950 border border-white/10 text-xs font-bold uppercase tracking-wider text-emerald-400 transition-all flex items-center gap-2">
+                                <span>Start Arabic</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 3 Strip -->
+                <div class="glass-card rounded-2xl p-6 md:p-8 relative overflow-hidden group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                        <div class="lg:col-span-1 text-3xl md:text-4xl font-black text-sky-500/40 group-hover:text-sky-400 transition-colors">03</div>
+                        <div class="lg:col-span-4 space-y-2">
+                            <span class="inline-block px-3 py-1 rounded-full bg-sky-500/10 text-sky-300 text-[10px] font-bold uppercase border border-sky-500/20">
+                                Memorization & Revision
+                            </span>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                                <a href="https://noor-path.com/courses/quran-hifz-memorization/" target="_blank" rel="noopener noreferrer">Quran Hifz</a>
+                            </h3>
+                        </div>
+                        <div class="lg:col-span-5 text-slate-300 text-xs md:text-sm leading-relaxed">
+                            Begin your Quran Hifz journey with a structured memorization program. 1-on-1 lessons combine new memorization, regular revision, recitation, and individual feedback for kids and adults.
+                        </div>
+                        <div class="lg:col-span-2 flex justify-start lg:justify-end">
+                            <a href="https://noor-path.com/courses/quran-hifz-memorization/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-white/5 hover:bg-emerald-500 hover:text-slate-950 border border-white/10 text-xs font-bold uppercase tracking-wider text-emerald-400 transition-all flex items-center gap-2">
+                                <span>Begin Hifz</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 4 Strip -->
+                <div class="glass-card rounded-2xl p-6 md:p-8 relative overflow-hidden group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                        <div class="lg:col-span-1 text-3xl md:text-4xl font-black text-indigo-500/40 group-hover:text-indigo-400 transition-colors">04</div>
+                        <div class="lg:col-span-4 space-y-2">
+                            <span class="inline-block px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 text-[10px] font-bold uppercase border border-indigo-500/20">
+                                Makharij & Rules
+                            </span>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                                <a href="https://noor-path.com/courses/quran-tajweed-recitation/" target="_blank" rel="noopener noreferrer">Quran Tajweed</a>
+                            </h3>
+                        </div>
+                        <div class="lg:col-span-5 text-slate-300 text-xs md:text-sm leading-relaxed">
+                            Improve your recitation through personalized Tajweed lessons. Learn Makharij Al-Huruf, essential Tajweed rules, correct pronunciation, and apply live corrections with qualified tutors.
+                        </div>
+                        <div class="lg:col-span-2 flex justify-start lg:justify-end">
+                            <a href="https://noor-path.com/courses/quran-tajweed-recitation/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-white/5 hover:bg-emerald-500 hover:text-slate-950 border border-white/10 text-xs font-bold uppercase tracking-wider text-emerald-400 transition-all flex items-center gap-2">
+                                <span>Master Tajweed</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW INNER DISPLAY 3: Dashboard Grid Matrix (Why 1-on-1 Advantage) -->
+    <section id="advantage" class="relative z-10 py-24 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 space-y-12">
+            
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">The 1-on-1 Advantage</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight">
+                    Learn 1-on-1 With Al-Azhar Certified Tutors
+                </h2>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                    Your learning experience starts with a qualified tutor who understands your goals and adapts each lesson to your needs. Our tutors include Al-Azhar certified scholars and qualified Arab teachers who communicate fluently in English. With 1-on-1 classes, your tutor adjusts the pace, revisits difficult concepts, and provides live corrections.
+                </p>
+            </div>
+
+            <!-- Asymmetric Dashboard Matrix -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="glass-card rounded-3xl p-8 border border-emerald-500/30 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-lg">01</div>
+                        <h4 class="font-bold text-white text-lg">1-on-1 Lessons</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Direct tutor focus and real-time corrections tailored specifically to your speed and understanding.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-[11px] font-bold text-emerald-400 uppercase tracking-widest">
+                        Personalized Attention
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 border border-white/10 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-300 font-bold text-lg">02</div>
+                        <h4 class="font-bold text-white text-lg">Al-Azhar Certified Scholars</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Highly qualified native scholars providing authentic Islamic and Quranic knowledge.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-[11px] font-bold text-teal-300 uppercase tracking-widest">
+                        Authentic Lineage
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 border border-white/10 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-300 font-bold text-lg">03</div>
+                        <h4 class="font-bold text-white text-lg">Fluent English Communication</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Clear concept breakdown ensuring no language barriers during complex lessons.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-[11px] font-bold text-sky-300 uppercase tracking-widest">
+                        Seamless Interaction
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 glass-card rounded-3xl p-8 border border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold uppercase text-emerald-400">Flexibility First</span>
+                        <h4 class="font-bold text-white text-lg">Flexible Scheduling & Worldwide Access</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed max-w-xl">Arranged seamlessly around your routine whether you live in the US, UK, Europe, or GCC. Perfect for busy professionals and students.</p>
+                    </div>
+                    <a href="https://noor-path.com" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs uppercase tracking-widest whitespace-nowrap">
+                        Book Class
+                    </a>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 border border-white/10 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold uppercase text-amber-400">For All Generations</span>
+                        <h4 class="font-bold text-white text-lg">Kids & Adults Programs</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Specially designed teaching methodologies for kids, complete adult beginners, or advanced scholars.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Horizontal Tag Pill Cluster -->
+    <section class="relative z-10 py-12 border-y border-white/10 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h4 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-6">What Can You Learn With NoorPath Academy?</h4>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 border border-white/10 hover:border-emerald-500/40">Islamic Studies</span>
+                <span class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 border border-white/10 hover:border-emerald-500/40">Quran Memorization</span>
+                <span class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 border border-white/10 hover:border-emerald-500/40">Quran Tajweed</span>
+                <span class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 border border-white/10 hover:border-emerald-500/40">Quran Recitation</span>
+                <span class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 border border-white/10 hover:border-emerald-500/40">Arabic Reading & Writing</span>
+                <span class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 border border-white/10 hover:border-emerald-500/40">Quranic Arabic</span>
+                <span class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 border border-white/10 hover:border-emerald-500/40">Arabic Grammar</span>
+                <span class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 border border-white/10 hover:border-emerald-500/40">Arabic Vocabulary</span>
+                <span class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 border border-white/10 hover:border-emerald-500/40">Conversational Arabic</span>
+                <span class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 border border-white/10 hover:border-emerald-500/40">Islamic Sciences</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW INNER DISPLAY 4: Connected Snake/Step Flow Process -->
+    <section id="steps" class="relative z-10 py-24 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Onboarding Journey</span>
+                <h2 class="text-3xl font-black text-white">How Online Learning Works</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+                
+                <div class="glass-card p-8 rounded-3xl space-y-4 relative">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Step 01</span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981]"></span>
+                    </div>
+                    <h4 class="font-bold text-white text-lg">Book Your Free Trial</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Take the first step by booking your free trial lesson with ease.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl space-y-4 relative">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Step 02</span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-500/40"></span>
+                    </div>
+                    <h4 class="font-bold text-white text-lg">Meet Your Tutor</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Discuss your learning goals and personal expectations in detail.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl space-y-4 relative">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Step 03</span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-500/40"></span>
+                    </div>
+                    <h4 class="font-bold text-white text-lg">Assess Your Level</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Your tutor identifies your current level and targets areas for growth.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl space-y-4 relative">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Step 04</span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-500/40"></span>
+                    </div>
+                    <h4 class="font-bold text-white text-lg">Choose Your Path</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Select Islamic Studies, Arabic, Hifz, or Tajweed track.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl space-y-4 relative">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Step 05</span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-500/40"></span>
+                    </div>
+                    <h4 class="font-bold text-white text-lg">Personalized Plan</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Start 1-on-1 lessons according to your custom schedule and pace.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl space-y-4 relative bg-gradient-to-br from-emerald-950/40 to-slate-900/40 border-emerald-500/30">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Step 06</span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+                    </div>
+                    <h4 class="font-bold text-white text-lg">Learn & Progress</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">Enjoy continuous feedback and gradual spiritual improvement.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW INNER DISPLAY 5: Split Column Interactive Glass FAQ -->
+    <section id="faq" class="relative z-10 py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-5 space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Got Questions?</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Frequently Asked Questions</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Find answers to common questions about our tutors, lesson structures, and onboarding process.
+                    </p>
+                    <div class="pt-4">
+                        <a href="https://noor-path.com" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 rounded-xl glass-panel text-xs font-bold text-emerald-400 uppercase tracking-widest border border-emerald-500/30 hover:bg-emerald-500/10">
+                            Ask Us Anything Else
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <h4 class="font-bold text-white text-sm">What does NoorPath Academy offer?</h4>
+                        <p class="mt-2 text-xs text-slate-400 leading-relaxed">NoorPath Academy provides personalized online learning programs in Islamic Studies, Arabic Language, Quran Hifz, and Quran Tajweed through 1-on-1 lessons.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <h4 class="font-bold text-white text-sm">Are classes 1-on-1?</h4>
+                        <p class="mt-2 text-xs text-slate-400 leading-relaxed">Yes. Students learn directly with their tutor through personalized private online lessons.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <h4 class="font-bold text-white text-sm">Are the tutors Al-Azhar certified?</h4>
+                        <p class="mt-2 text-xs text-slate-400 leading-relaxed">NoorPath Academy connects students with Al-Azhar certified scholars and qualified tutors depending on the chosen program.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <h4 class="font-bold text-white text-sm">Can children and beginners join?</h4>
+                        <p class="mt-2 text-xs text-slate-400 leading-relaxed">Yes! All programs can be adapted for children, adults, complete beginners, and advanced learners.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <h4 class="font-bold text-white text-sm">Can I choose my class schedule?</h4>
+                        <p class="mt-2 text-xs text-slate-400 leading-relaxed">Yes. Flexible scheduling allows students to arrange lessons easily around personal and professional commitments.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="relative z-10 py-20 px-6">
+        <div class="max-w-5xl mx-auto glass-card rounded-3xl p-12 text-center space-y-6 relative overflow-hidden border border-emerald-500/30">
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-2xl"></div>
+            <h2 class="text-3xl md:text-5xl font-black text-white">
+                Start Your Quran & Islamic Learning Journey Today
+            </h2>
+            <p class="text-slate-300 text-sm max-w-xl mx-auto">
+                Choose your learning path, book your free trial, and take the next step toward achieving your Quran and Islamic learning goals.
+            </p>
+            <div>
+                <a href="https://noor-path.com" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-widest transition-all shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:scale-105">
+                    Book Your Free Trial Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-12 border-t border-white/10 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <a href="https://noor-path.com" target="_blank" rel="noopener noreferrer">
+                <img src="https://noor-path.com/wp-content/uploads/2025/09/BIG-LOGO-FONT-RIGHT-1-1-1536x433.png" alt="NoorPath Academy Logo" class="h-9 w-auto object-contain brightness-110">
+            </a>
+            
+            <div class="flex flex-wrap items-center gap-6 font-bold uppercase tracking-wider text-slate-300">
+                <a href="https://noor-path.com/courses/islamic-study-track/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400">Islamic Studies</a>
+                <a href="https://noor-path.com/courses/arabic-language/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400">Arabic</a>
+                <a href="https://noor-path.com/courses/quran-hifz-memorization/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400">Hifz</a>
+                <a href="https://noor-path.com/courses/quran-tajweed-recitation/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400">Tajweed</a>
+            </div>
+
+            <div>
+                &copy; 2026 NoorPath Academy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
